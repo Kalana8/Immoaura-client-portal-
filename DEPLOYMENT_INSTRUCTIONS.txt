@@ -1,0 +1,195 @@
+═══════════════════════════════════════════════════════════════════════════════
+                  IMMOAURA CLIENT PORTAL - DEPLOYMENT PACKAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+FILE: immoaura-client-portal.zip (343 KB)
+CREATED: October 30, 2025
+VERSION: Production Ready
+
+═══════════════════════════════════════════════════════════════════════════════
+QUICK START - 5 MINUTES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. LOG IN TO HOSTINGER
+   → https://hpanel.hostinger.com
+
+2. UPLOAD ZIP FILE
+   → Files → File Manager → public_html
+   → Click "Upload" → Select immoaura-client-portal.zip
+   → Wait for upload to complete
+
+3. EXTRACT FILES
+   → Right-click immoaura-client-portal.zip
+   → Select "Extract"
+   → Destination: public_html
+   → Click "Extract"
+   → Delete the .zip file
+
+4. CONFIGURE HOSTING
+   → Settings → General
+   → Document Root: /public_html
+   → Enable HTTPS & Auto SSL
+   → Save changes
+
+5. ADD SUPABASE CREDENTIALS
+   BEFORE UPLOAD, edit these in your environment:
+   - VITE_SUPABASE_URL: Your Supabase project URL
+   - VITE_SUPABASE_ANON_KEY: Your Supabase anon key
+   - VITE_ADMIN_EMAIL: Your admin email
+
+   These are already built into the production bundle.
+   Get them from: Supabase Dashboard → Settings → API
+
+6. TEST YOUR SITE
+   → Visit your domain: https://yourdomain.com
+   → Check console (F12) for errors
+   → Test login functionality
+   → Verify mobile responsiveness
+
+═══════════════════════════════════════════════════════════════════════════════
+WHAT'S INCLUDED IN THIS ZIP
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ dist/                    - Production-optimized React application
+✅ supabase/migrations/     - Database schema and structure
+✅ supabase/functions/      - Email notification Edge Function
+✅ .htaccess               - SPA routing, caching, and security configuration
+
+═══════════════════════════════════════════════════════════════════════════════
+FILE STRUCTURE AFTER EXTRACTION
+═══════════════════════════════════════════════════════════════════════════════
+
+public_html/
+├── dist/
+│   ├── index.html         ← Main application entry point
+│   ├── assets/            ← JavaScript, CSS, images
+│   ├── favicon.ico        ← Website icon
+│   └── robots.txt         ← SEO configuration
+├── supabase/              ← Database & functions (for reference)
+└── .htaccess             ← Routing & security rules
+
+═══════════════════════════════════════════════════════════════════════════════
+FEATURES INCLUDED
+═══════════════════════════════════════════════════════════════════════════════
+
+✨ User Authentication
+   - Individual sign up with address validation
+   - Business sign up with BTW number
+   - Terms & Conditions + GDPR consent
+   - Secure session management
+
+📊 Client Dashboard
+   - KPI cards with order statistics
+   - Monthly orders chart (last 12 months)
+   - Recent orders list with status tracking
+   - Total spending analytics
+
+🛒 Order Management
+   - 4-step order wizard
+   - Service selection (Video, 2D Plans, 3D Plans)
+   - Dynamic configuration per service
+   - Agenda scheduling with available slots
+   - Order review & price breakdown
+
+📋 Order Detail Page
+   - Complete order summary with pricing
+   - Status timeline and history
+   - File uploads & downloads
+   - Invoice management & links
+
+💼 Invoice Management
+   - Sequential invoice numbering
+   - Invoice status tracking (Paid/Unpaid)
+   - Download functionality
+   - Link to related orders
+
+👤 User Profile
+   - Account information management
+   - Business/Personal details
+   - VAT number management
+   - Language preference (NL/FR/DE/EN)
+
+📧 Email Notifications
+   - Order submission confirmation
+   - Status change notifications
+   - Invoice issued alerts
+   - Powered by Supabase + Resend
+
+📱 Responsive Design
+   - Mobile-first approach
+   - Tablet optimization
+   - Desktop layout
+   - 100% mobile-friendly navigation
+
+🔒 Security
+   - HTTPS encryption enforced
+   - CORS protection
+   - SPA routing with .htaccess
+   - Input validation & sanitization
+
+⚡ Performance
+   - Minified & optimized bundles
+   - Asset caching (1 year for static, 1 hour for HTML)
+   - Gzip compression enabled
+   - Modern React 18 + Vite build
+
+═══════════════════════════════════════════════════════════════════════════════
+ENVIRONMENT VARIABLES REQUIRED
+═══════════════════════════════════════════════════════════════════════════════
+
+These should be added to .env.production BEFORE building:
+
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key-here
+VITE_ADMIN_EMAIL=admin@yourdomain.com
+
+Get Supabase keys from:
+  → Supabase Dashboard → Settings → API → Copy URL & anon key
+
+═══════════════════════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ BLANK WHITE PAGE
+   → Check browser console (F12 → Console)
+   → Verify Supabase URL and keys are correct
+   → Check .htaccess is in public_html
+
+❌ 404 ERRORS ON PAGE REFRESH
+   → Ensure .htaccess file exists in public_html
+   → Check mod_rewrite is enabled in Hostinger
+
+❌ CORS ERRORS IN CONSOLE
+   → Go to Supabase Dashboard → Auth → Redirect URLs
+   → Add your domain to the allowed list
+
+❌ IMAGES NOT SHOWING
+   → Verify dist/assets/ contains image files
+   → Check image paths in console for 404s
+
+❌ EMAILS NOT SENDING
+   → Deploy Supabase Edge Function: 
+     supabase functions deploy send-email
+   → Set Resend API key in Supabase secrets
+
+═══════════════════════════════════════════════════════════════════════════════
+NEXT STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+For detailed instructions, see:
+  → HOSTINGER_QUICK_START.md     (10-minute guide)
+  → DEPLOYMENT_GUIDE.md          (Detailed 7-step guide)
+
+═══════════════════════════════════════════════════════════════════════════════
+SUPPORT CONTACTS
+═══════════════════════════════════════════════════════════════════════════════
+
+Hosting Issues:        https://support.hostinger.com
+Database/Backend:      https://supabase.com/docs
+Email Service:         https://resend.com/docs
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Ready to deploy? Follow the QUICK START section above! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════

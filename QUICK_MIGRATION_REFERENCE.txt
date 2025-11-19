@@ -1,0 +1,170 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    SUPABASE DATABASE MIGRATION REFERENCE                        ║
+║                          Quick Start Guide - Nov 4, 2025                        ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 QUICKEST METHOD (Recommended)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Open Terminal
+  2. cd "/Users/kalanakavinda/Downloads/client portal"
+  3. ./migrate-to-new-project.sh
+  4. Follow prompts
+  5. Done! ✓
+
+  Time: ~2-3 minutes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 NEW PROJECT CREDENTIALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Project ID:    ekswazmqhwtxzgdckpxt
+  Project URL:   https://ekswazmqhwtxzgdckpxt.supabase.co
+  Anon Key:      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
+                 ZSIsInJlZiI6ImVrc3dhem1xaHd0eHpnZGNrcHh0Iiwicm9sZSI6ImFu
+                 b24iLCJpYXQiOjE3NjIyNDY2MzMsImV4cCI6MjA3NzgyMjYzM30.Y04J2j
+                 Vcms5kRYcS15QZ8ATanQrvVvbohmUSOV07X9U
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📂 MIGRATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  supabase/migrations/
+  ├── 20251022041141...    Initial RLS setup
+  ├── 20251022050000...    Fix RLS policies
+  ├── 20251023000000...    Order/Invoice generators
+  ├── 20251101192740...    Sequence-based numbering
+  ├── 20251102000000...    Admin infrastructure
+  └── 20251102050000...    Email notifications
+
+  Total: 6 migrations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 WHAT GETS CREATED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Tables:
+    • users (authentication profiles)
+    • orders (client orders)
+    • invoices (billing & tracking)
+    • calendar_slots (admin availability)
+    • admin_activity_log (audit trail)
+    • admin_settings (configuration)
+    • email_notifications (email tracking)
+
+  Functions:
+    • generate_order_number()      → IM-000001 format
+    • generate_invoice_number()    → INV-2025-000001 format
+    • log_email_notification()     → Email tracking
+    • log_admin_action()           → Audit logging
+    • check_overdue_invoices()     → Find overdue invoices
+
+  Triggers:
+    • order_status_email_trigger   → Auto-log emails on order update
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VERIFICATION CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  After running migration script:
+    ☐ No errors reported
+    ☐ .env.local updated
+    ☐ supabase/config.toml updated
+    ☐ Connection test passed
+
+  Then test the app:
+    ☐ npm install
+    ☐ npm run dev
+    ☐ Can login
+    ☐ Can view orders
+    ☐ Can create order
+    ☐ Admin panel works
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚙️ ENVIRONMENT VARIABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  File: .env.local
+
+  VITE_SUPABASE_URL=https://ekswazmqhwtxzgdckpxt.supabase.co
+  VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+  (Script does this automatically)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 CONFIG FILE UPDATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  File: supabase/config.toml
+
+  project_id = "ekswazmqhwtxzgdckpxt"
+
+  (Script does this automatically)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🆘 TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Problem: "supabase: command not found"
+  Solution: brew install supabase/tap/supabase
+
+  Problem: Connection refused
+  Solution: Check credentials in .env.local and Supabase Dashboard
+
+  Problem: RLS policy violations
+  Solution: Migrations may not have run in order - check Supabase Dashboard
+
+  Problem: "Function does not exist"
+  Solution: Run migration 20251101192740_fix_order_number_sequence.sql
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔙 ROLLBACK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  If you need to revert:
+    1. ./rollback-migration.sh
+    2. Confirm when prompted
+    3. App reverts to old project
+
+  Backup files created:
+    • supabase/config.toml.backup
+    • .env.local.backup
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📞 DOCUMENTATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • MIGRATION_SUMMARY.md          ← Start here!
+  • DATABASE_MIGRATION_GUIDE.md   ← Detailed instructions
+  • SUPABASE_INTEGRATION.md       ← Technical reference
+  • QUICK_MIGRATION_REFERENCE.txt ← This file
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 NEXT STEPS AFTER MIGRATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. npm install
+  2. npm run dev
+  3. Test the application thoroughly
+  4. If deployed: update remote environment variables
+  5. Redeploy if needed
+  6. Commit changes: git add supabase/config.toml .env.local
+                    git commit -m "Migrate to new Supabase project"
+                    git push
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📅 PROJECT INFO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Project: Immoaura Client Portal
+  Created: November 4, 2025
+  Old Project: tvuklnrtagwivkeczedy
+  New Project: ekswazmqhwtxzgdckpxt
+  Migrations: 6 files
+  Est. Time: 2-3 minutes
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                START MIGRATION                                ║
+║                  ./migrate-to-new-project.sh                                  ║
+╚═══════════════════════════════════════════════════════════════════════════════╝

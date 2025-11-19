@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Immoaura Brand Colors */
+    --background: 0 0% 95%;
+    --foreground: 0 3% 12%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 3% 12%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 3% 12%;
+    
+    /* Primary - #243E8F brand blue */
+    --primary: 225 58% 35%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 225 58% 30%;
+    
+    /* Surface - #F2F3F3 */
+    --secondary: 180 4% 95%;
+    --secondary-foreground: 0 3% 12%;
+    
+    --muted: 180 4% 95%;
+    --muted-foreground: 0 3% 45%;
+    
+    --accent: 225 58% 35%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Divider - #E7E9EC on #F2F3F3 surfaces (spec requirement) */
+    --border: 200 11% 93%;
+    --input: 200 11% 93%;
+    --ring: 225 58% 35%;
+    
+    --radius: 0.75rem;
+    
+    /* Status colors */
+    --status-review: 38 92% 50%;
+    --status-confirmed: 142 71% 45%;
+    --status-planned: 217 91% 60%;
+    --status-delivered: 262 83% 58%;
+    --status-completed: 142 76% 36%;
+    --status-canceled: 0 84% 60%;
+    
+    /* Sidebar */
+    --sidebar-background: 225 58% 35%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 225 58% 35%;
+    --sidebar-accent: 225 58% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 225 58% 25%;
+    --sidebar-ring: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
+    
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 225 58% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 225 58% 50%;
+    
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 225 58% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 225 58% 45%;
+    
+    --sidebar-background: 0 0% 14%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 225 58% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 225 58% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .status-in_review {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .status-confirmed {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .status-planned {
+    @apply bg-blue-100 text-blue-800;
+  }
+  
+  .status-delivered {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .status-completed {
+    @apply bg-emerald-100 text-emerald-800;
+  }
+  
+  .status-canceled {
+    @apply bg-red-100 text-red-800;
+  }
+}

@@ -1,0 +1,156 @@
+═══════════════════════════════════════════════════════════════════════════════
+🚀 IMMOAURA CLIENT PORTAL - QUICK DEPLOYMENT GUIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+📦 WHAT'S IN THIS PACKAGE:
+───────────────────────────────────────────────────────────────────────────────
+✅ Production build (dist/ folder) - READY TO UPLOAD
+✅ .htaccess file for SPA routing
+✅ Database migrations (supabase/migrations/)
+✅ Complete source code
+✅ Deployment instructions
+
+═══════════════════════════════════════════════════════════════════════════════
+⚡ 5-MINUTE DEPLOYMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Upload Files to Hostinger
+───────────────────────────────────────────────────────────────────────────────
+1. Log in to Hostinger hPanel
+2. Go to File Manager
+3. Navigate to public_html/
+4. Upload ALL files from dist/ folder
+5. Upload .htaccess file to public_html/ root
+
+STEP 2: Configure Supabase (IMPORTANT!)
+───────────────────────────────────────────────────────────────────────────────
+The build includes Supabase credentials. If you need to change them:
+
+Option A: Quick Edit (5 minutes)
+  1. Open dist/assets/index-*.js in a text editor
+  2. Find: "https://tvuklnrtagwivkcznedy.supabase.co"
+  3. Replace with your Supabase URL
+  4. Find the anon key and replace with yours
+  5. Re-upload the file
+
+Option B: Rebuild (10 minutes)
+  1. Create .env.production file:
+     VITE_SUPABASE_URL=https://your-project.supabase.co
+     VITE_SUPABASE_ANON_KEY=your-key-here
+  2. Run: npm install && npm run build
+  3. Upload new dist/ folder
+
+STEP 3: Run Database Migrations
+───────────────────────────────────────────────────────────────────────────────
+1. Go to Supabase Dashboard → SQL Editor
+2. Run these migrations IN ORDER:
+   - 20251022041141_c8359f9d-763e-4e80-bb08-0ca78d8cecbe.sql
+   - 20251022050000_fix_users_rls.sql
+   - 20251023000000_create_order_number_function.sql
+   - 20251101192740_fix_order_number_sequence.sql
+   - 20251102000000_create_admin_infrastructure.sql
+   - 20251102050000_phase6_email_notifications.sql
+   - 20251103000000_setup_file_storage.sql
+
+STEP 4: Test Your Site
+───────────────────────────────────────────────────────────────────────────────
+1. Visit: https://yourdomain.com
+2. You should see the welcome page
+3. Test login/signup
+4. Check browser console (F12) for errors
+
+═══════════════════════════════════════════════════════════════════════════════
+🔐 SUPABASE CONFIGURATION
+═══════════════════════════════════════════════════════════════════════════════
+
+Get Your Credentials:
+───────────────────────────────────────────────────────────────────────────────
+1. Go to: https://app.supabase.com
+2. Select your project
+3. Go to: Settings → API
+4. Copy:
+   - Project URL (e.g., https://xxxxx.supabase.co)
+   - anon public key (long JWT token)
+
+Update Supabase Redirect URLs:
+───────────────────────────────────────────────────────────────────────────────
+1. Go to: Supabase Dashboard → Authentication → URL Configuration
+2. Add to "Redirect URLs":
+   - https://yourdomain.com
+   - https://yourdomain.com/auth
+   - https://yourdomain.com/dashboard
+3. Set "Site URL" to: https://yourdomain.com
+
+═══════════════════════════════════════════════════════════════════════════════
+📂 FILE STRUCTURE AFTER UPLOAD
+═══════════════════════════════════════════════════════════════════════════════
+
+public_html/
+├── index.html              ← Main entry point
+├── .htaccess              ← SPA routing (IMPORTANT!)
+├── assets/
+│   ├── index-*.js         ← Application bundle
+│   └── index-*.css        ← Styles
+├── favicon.ico
+├── favicon.png
+├── immoaura-logo.png
+└── robots.txt
+
+═══════════════════════════════════════════════════════════════════════════════
+✅ TESTING CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+After deployment, test:
+───────────────────────────────────────────────────────────────────────────────
+□ Welcome page loads
+□ Sign up works
+□ Login works
+□ Forgot password works
+□ Client dashboard loads
+□ Admin panel accessible (with admin account)
+□ Language switching works (EN, FR, DE, NL)
+□ Order creation works
+□ Calendar booking works
+□ Messages work
+□ Invoice creation works
+□ File uploads work
+
+═══════════════════════════════════════════════════════════════════════════════
+🔧 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+❌ White/Blank Page
+   → Check browser console (F12)
+   → Verify Supabase URL/key
+   → Check .htaccess exists
+
+❌ 404 on Refresh
+   → Ensure .htaccess in public_html/
+   → Check mod_rewrite enabled
+
+❌ CORS Errors
+   → Add domain to Supabase redirect URLs
+
+❌ Login Not Working
+   → Check Supabase project active
+   → Verify RLS policies enabled
+
+═══════════════════════════════════════════════════════════════════════════════
+📞 NEED HELP?
+═══════════════════════════════════════════════════════════════════════════════
+
+See DEPLOYMENT_README.md for detailed instructions
+Check browser console (F12) for specific errors
+Verify all files uploaded correctly
+Test with a fresh browser (incognito mode)
+
+═══════════════════════════════════════════════════════════════════════════════
+🎉 READY TO DEPLOY!
+═══════════════════════════════════════════════════════════════════════════════
+
+Package Status: ✅ PRODUCTION READY
+Build Date: November 2025
+Version: 1.0.0
+
+Good luck with your deployment! 🚀
+

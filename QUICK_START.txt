@@ -1,0 +1,52 @@
+═══════════════════════════════════════════════════════════════
+  CLIENT PORTAL - DEPLOYMENT PACKAGE
+  Ready for Upload and Testing
+═══════════════════════════════════════════════════════════════
+
+📦 ZIP FILE: client-portal-deployment-20251115-172838.zip
+
+✅ ALL CHANGES INCLUDED:
+   ✓ Complete wizard translation system (EN, FR, DE, NL)
+   ✓ All 4 wizard steps fully translated
+   ✓ All 3 service configurations translated
+   ✓ Back button fixed on Step 1
+   ✓ Dashboard auto-scroll to completed orders
+
+🚀 QUICK DEPLOYMENT:
+
+1. EXTRACT ZIP FILE
+   unzip client-portal-deployment-20251115-172838.zip
+   cd client-portal-deployment-20251115-172838
+
+2. INSTALL DEPENDENCIES
+   npm install
+
+3. SET ENVIRONMENT VARIABLES
+   Copy .env.example to .env
+   Add your Supabase credentials
+
+4. BUILD PROJECT
+   npm run build
+
+5. DEPLOY
+   Upload 'dist' folder to your hosting provider
+   OR use: vercel deploy / netlify deploy --prod
+
+🧪 QUICK TEST:
+
+1. Start dev server: npm run dev
+2. Test translations: Change language (EN/FR/DE/NL)
+3. Test wizard: Create new order, verify all steps translate
+4. Test dashboard: Check auto-scroll to completed orders
+
+📋 CHECKLIST:
+   [ ] Environment variables set
+   [ ] Build successful
+   [ ] Translations working
+   [ ] Wizard working
+   [ ] Dashboard scrolling
+
+📄 See DEPLOYMENT_INSTRUCTIONS.md for detailed guide
+
+═══════════════════════════════════════════════════════════════
+

@@ -1,0 +1,28 @@
+-- Manual instructions for creating the storage bucket
+-- This cannot be done via SQL migration due to permissions
+-- You must create the bucket manually in Supabase Dashboard
+
+-- INSTRUCTIONS:
+-- 1. Go to Supabase Dashboard: https://app.supabase.com
+-- 2. Select your project
+-- 3. Go to Storage section in the left sidebar
+-- 4. Click "New bucket"
+-- 5. Configure as follows:
+--    - Name: admin-order-files
+--    - Public: NO (unchecked - private bucket)
+--    - File size limit: 52428800 (50MB)
+--    - Allowed MIME types: 
+--      image/*
+--      application/pdf
+--      application/zip
+--      application/x-zip-compressed
+--      video/*
+--      application/msword
+--      application/vnd.openxmlformats-officedocument.wordprocessingml.document
+--      application/vnd.ms-excel
+--      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+--      text/plain
+--      application/octet-stream
+-- 6. Click "Create bucket"
+-- 7. After creating the bucket, run the policy migration: 20251103000000_setup_file_storage.sql
+

@@ -1,0 +1,170 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                       ⚡ QUICK START VISUAL GUIDE ⚡                          ║
+║                                                                               ║
+║              How to Fix: Duplicate Order Number Constraint Error              ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+
+STEP 1️⃣  - OPEN SUPABASE
+═══════════════════════════════════════════════════════════════════════════════
+
+    Go to:  https://app.supabase.com
+    
+    Select: Your Project (Immoaura Client Portal)
+    
+    Look for: Left sidebar menu
+    
+
+STEP 2️⃣  - NAVIGATE TO SQL EDITOR
+═══════════════════════════════════════════════════════════════════════════════
+
+    In Supabase Dashboard:
+    
+    ┌─ Left Sidebar ───────────────────────┐
+    │                                       │
+    │  ▶ Project Settings                   │
+    │  ▶ Databases                          │
+    │  ▶ Table Editor                       │
+    │  ▶ SQL Editor          ← CLICK HERE   │
+    │  ▶ Auth                               │
+    │  ▶ Storage                            │
+    │  ▶ Edge Functions                     │
+    │                                       │
+    └───────────────────────────────────────┘
+
+
+STEP 3️⃣  - CREATE NEW QUERY
+═══════════════════════════════════════════════════════════════════════════════
+
+    In SQL Editor:
+    
+    Click: "New Query" button (or + button)
+    
+    ┌─────────────────────────────────────────────┐
+    │  SQL Editor                 [+ New Query]   │
+    │                                             │
+    │  • Quick Start                              │
+    │  • Database Backups                         │
+    │  • Saved Queries                            │
+    │                                             │
+    └─────────────────────────────────────────────┘
+
+
+STEP 4️⃣  - COPY THE FIX SQL
+═══════════════════════════════════════════════════════════════════════════════
+
+    Open this file on your computer:
+    
+    📁 supabase/migrations/20251101192740_fix_order_number_sequence.sql
+    
+    Select ALL content (Cmd+A or Ctrl+A)
+    
+    Copy (Cmd+C or Ctrl+C)
+
+
+STEP 5️⃣  - PASTE INTO SUPABASE
+═══════════════════════════════════════════════════════════════════════════════
+
+    In Supabase SQL Editor:
+    
+    ┌─────────────────────────────────────────────────────────────┐
+    │ SQL Query                                                   │
+    │                                                             │
+    │ -- Fix the order number generation to use sequences...     │
+    │ -- (paste the entire file contents here)                   │
+    │                                                             │
+    │ CREATE SEQUENCE IF NOT EXISTS order_number_seq ...         │
+    │ ...                                                         │
+    │                                                             │
+    └─────────────────────────────────────────────────────────────┘
+
+
+STEP 6️⃣  - EXECUTE THE QUERY
+═══════════════════════════════════════════════════════════════════════════════
+
+    Click: Blue "Run" button or press Cmd+Enter / Ctrl+Enter
+    
+    ┌────────────────────────────────────────────┐
+    │  [← Back]  [Save]  [Run]  [Format]         │
+    │                    ▲                        │
+    │                    │ Click here             │
+    │                                             │
+    └────────────────────────────────────────────┘
+    
+    Wait for confirmation message:
+    
+    ✅ "Query successful - X rows affected"
+    
+    or
+    
+    ✅ "Success!" with checkmark
+
+
+STEP 7️⃣  - TEST THE FIX
+═══════════════════════════════════════════════════════════════════════════════
+
+    Go back to: Your Application
+    
+    Try to: Create a New Order
+    
+    Expected Result:
+    
+    ✅ Order created successfully
+    ✅ Order number: IM-000001 (or next in sequence)
+    ✅ No errors
+    ✅ Dashboard shows the new order
+
+
+STEP 8️⃣  - VERIFY (OPTIONAL)
+═══════════════════════════════════════════════════════════════════════════════
+
+    Back in Supabase SQL Editor, run this to verify:
+    
+    SELECT order_number FROM orders ORDER BY created_at DESC LIMIT 5;
+    
+    You should see your new order numbers like:
+    
+    IM-000001
+    IM-000002
+    IM-000003
+    (etc.)
+
+
+✅ DONE!
+═══════════════════════════════════════════════════════════════════════════════
+
+The duplicate order number error is now FIXED!
+
+✓ Multiple concurrent orders work perfectly
+✓ No more constraint violations
+✓ System is production-ready
+
+
+📚 FOR MORE INFO
+═══════════════════════════════════════════════════════════════════════════════
+
+Read these files for detailed explanations:
+
+  📄 FIX_SUMMARY.md        - Overview and timeline
+  📄 ORDER_NUMBER_FIX.md   - Complete technical details
+  📄 COMPARISON.txt        - Before/After comparison
+
+
+❓ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════════
+
+Problem: "Query failed"
+Solution: Make sure you copied the ENTIRE file, including comments
+
+Problem: Still getting errors
+Solution: Clear browser cache (Cmd+Shift+Del / Ctrl+Shift+Del) and try again
+
+Problem: Can't find SQL Editor
+Solution: Make sure you're in Supabase Dashboard, not just logged into account
+
+Still stuck? Check ORDER_NUMBER_FIX.md - Troubleshooting section
+
+
+⏱️  TIME ESTIMATE: 3-5 minutes total
+═══════════════════════════════════════════════════════════════════════════════
+

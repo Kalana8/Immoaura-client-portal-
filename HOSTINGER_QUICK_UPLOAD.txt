@@ -1,0 +1,100 @@
+═══════════════════════════════════════════════════════════
+  🚀 HOSTINGER UPLOAD - QUICK GUIDE
+═══════════════════════════════════════════════════════════
+
+📦 FILE TO UPLOAD:
+   hostinger-upload-20251115-173056.zip
+   Size: 421 KB
+
+✅ WHAT'S INCLUDED:
+   ✓ Production build (optimized & minified)
+   ✓ index.html
+   ✓ All CSS & JS assets
+   ✓ All images & icons
+   ✓ .htaccess (routing configuration)
+   ✓ robots.txt
+
+═══════════════════════════════════════════════════════════
+  UPLOAD STEPS (3 MINUTES)
+═══════════════════════════════════════════════════════════
+
+1. LOGIN TO HOSTINGER
+   → Go to hpanel.hostinger.com
+   → Login to your account
+
+2. OPEN FILE MANAGER
+   → Click "File Manager"
+   → Navigate to "public_html" folder
+
+3. UPLOAD ZIP FILE
+   → Click "Upload" button
+   → Select: hostinger-upload-20251115-173056.zip
+   → Wait for upload to complete
+
+4. EXTRACT ZIP FILE
+   → Right-click on uploaded zip
+   → Select "Extract" or "Unzip"
+   → Extract to public_html folder
+
+5. MOVE FILES TO ROOT (if needed)
+   → If files are in subfolder
+   → Move all contents to public_html root
+   → Ensure .htaccess is in root
+
+6. SET PERMISSIONS
+   → .htaccess: 644
+   → Folders: 755
+   → Files: 644
+
+7. TEST YOUR WEBSITE
+   → Visit your domain
+   → Test all pages
+   → Test language switching
+   → Test wizard functionality
+
+═══════════════════════════════════════════════════════════
+  ✅ CHECKLIST
+═══════════════════════════════════════════════════════════
+
+Before Upload:
+   [ ] Build completed successfully
+   [ ] ZIP file ready
+   [ ] Environment variables configured
+
+After Upload:
+   [ ] Files extracted correctly
+   [ ] .htaccess in root directory
+   [ ] Permissions set correctly
+   [ ] Website loads
+   [ ] All pages work
+   [ ] Translations work
+   [ ] Wizard works
+
+═══════════════════════════════════════════════════════════
+  🆘 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════
+
+404 Errors?
+   → Check .htaccess is in root
+   → Verify permissions (644)
+   → Check Apache mod_rewrite enabled
+
+Blank Page?
+   → Check browser console
+   → Verify all files uploaded
+   → Check file permissions
+
+Assets Not Loading?
+   → Check file paths
+   → Verify folder permissions (755)
+   → Clear browser cache
+
+═══════════════════════════════════════════════════════════
+
+📄 For detailed instructions, see:
+   HOSTINGER_UPLOAD_INSTRUCTIONS.md
+
+🎉 READY TO UPLOAD!
+
+═══════════════════════════════════════════════════════════
+

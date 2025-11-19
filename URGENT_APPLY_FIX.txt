@@ -1,0 +1,73 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                   ⚠️  CRITICAL FIX - APPLY IMMEDIATELY  ⚠️                    ║
+║                                                                               ║
+║                    Duplicate Order Number Constraint Error                    ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+🔴 ISSUE
+═══════════════════════════════════════════════════════════════════════════════
+Error: "duplicate key value violates unique constraint 'orders_order_number_key'"
+Happens: When creating new orders (especially multiple simultaneous orders)
+
+✅ ROOT CAUSE IDENTIFIED
+═══════════════════════════════════════════════════════════════════════════════
+Race condition in order number generation:
+- The MAX() function is NOT atomic
+- When 2+ users create orders simultaneously, both get the same order number
+- First insert succeeds, second fails with constraint violation
+
+✅ FIX CREATED
+═══════════════════════════════════════════════════════════════════════════════
+New migration file:
+  📄 supabase/migrations/20251101192740_fix_order_number_sequence.sql
+
+What it does:
+  ✓ Creates PostgreSQL SEQUENCE objects (atomic, guaranteed unique)
+  ✓ Replaces MAX() with nextval() for order number generation
+  ✓ Maintains existing format: IM-000001, IM-000002, etc.
+  ✓ Also fixes invoice number generation with same approach
+
+📋 HOW TO APPLY THE FIX
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Open Supabase Dashboard
+  → Go to: https://app.supabase.com
+  → Sign in to your project
+
+STEP 2: Open SQL Editor
+  → Click "SQL Editor" in left sidebar
+  → Click "New Query" button
+
+STEP 3: Copy the Migration
+  → Open file: supabase/migrations/20251101192740_fix_order_number_sequence.sql
+  → Copy ALL contents
+  → Paste into Supabase SQL Editor
+
+STEP 4: Execute
+  → Click blue "Run" button (or press Cmd+Enter)
+  → Wait for "Query successful" message
+
+STEP 5: Test
+  → Go back to application
+  → Try creating a new order
+  → Should now work without errors
+  → Order number will be in format: IM-000001, IM-000002, etc.
+
+⏱️  ESTIMATED TIME: 2-3 minutes
+
+📚 FOR MORE DETAILS
+═══════════════════════════════════════════════════════════════════════════════
+Read: ORDER_NUMBER_FIX.md
+  - Full technical explanation
+  - Why it happened
+  - How the fix works
+  - Troubleshooting steps
+
+🎯 DONE!
+═══════════════════════════════════════════════════════════════════════════════
+After applying the fix:
+  ✅ No more duplicate order number errors
+  ✅ Multiple concurrent orders work reliably
+  ✅ Order numbers still in correct format (IM-000001, etc.)
+  ✅ System is production-ready
+
