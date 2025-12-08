@@ -23,16 +23,19 @@ const Index = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <img
-                src="/immoaura-logo.png"
+                src="/logo.png"
                 alt="Immoaura Logo"
                 className="h-8 w-auto object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
               />
             </div>
             <div className="flex items-center gap-4">
               <Button
                 variant="ghost"
                 onClick={() => navigate("/auth")}
-                className="text-gray-700 dark:text-gray-300 hover:text-[#243E8F] dark:hover:text-[#5B7FD8]"
+                className="text-gray-700 dark:text-gray-300 hover:bg-[#243E8F] dark:hover:bg-[#5B7FD8] hover:text-white dark:hover:text-white"
               >
                 Sign In
               </Button>

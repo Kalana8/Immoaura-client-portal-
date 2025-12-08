@@ -175,7 +175,7 @@ export const AdminLayout = ({ children, userEmail }: AdminLayoutProps) => {
       <aside className="hidden md:flex md:flex-col w-64 bg-white border-r border-gray-200 flex-shrink-0 overflow-y-auto">
         <div className="flex items-center gap-3 border-b border-gray-200 px-6 py-4 flex-shrink-0">
           <img
-            src="/immoaura-logo.png"
+            src="/logo.png"
             alt="Immoaura Admin"
             className="h-auto w-full object-contain"
             onError={(e) => {
@@ -205,7 +205,7 @@ export const AdminLayout = ({ children, userEmail }: AdminLayoutProps) => {
         <header className="md:hidden border-b border-gray-200 bg-white px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
-              src="/immoaura-logo.png"
+              src="/logo.png"
               alt="Immoaura"
               className="h-auto w-40 object-contain"
             />
@@ -221,7 +221,7 @@ export const AdminLayout = ({ children, userEmail }: AdminLayoutProps) => {
               <SheetHeader className="border-b border-gray-200 px-6 py-5">
                 <SheetTitle>
                   <img
-                    src="/immoaura-logo.png"
+                    src="/logo.png"
                     alt="Immoaura"
                     className="h-auto w-full object-contain"
                   />

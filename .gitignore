@@ -29,6 +29,5 @@ hostinger-upload/
 bun.lockb
 
 # Environment files
-.env
-.env.local
 .env.*.local
+config.bat

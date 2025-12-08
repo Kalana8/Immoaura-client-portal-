@@ -188,21 +188,36 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <div className="flex flex-col md:flex-row h-dvh md:h-screen overflow-hidden bg-background">
       {/* Mobile Header */}
-      <header className="md:hidden shrink-0 bg-sidebar text-sidebar-foreground border-b border-sidebar-border">
-        <div className="flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-3">
-            <img src="/immoaura-logo.png" alt="Immoaura Logo" className="h-auto w-40 rounded-lg object-contain" />
+      <header className="md:hidden shrink-0 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-gray-800">
+        <div className="flex items-center justify-between">
+          <div className="flex-1 px-6 py-4">
+            <img 
+              src="/logo.png" 
+              alt="Immoaura Logo" 
+              className="h-auto w-full object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
           </div>
-          <Sheet>
+          <div className="px-4 flex-shrink-0">
+            <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-sidebar-foreground">
+              <Button variant="ghost" size="icon" className="text-gray-700 dark:text-gray-300">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 w-72 bg-white dark:bg-slate-900 border-sidebar-border flex flex-col">
               <SheetHeader className="px-6 py-4 border-b border-gray-200 dark:border-gray-700 flex-shrink-0">
                 <SheetTitle className="flex items-center gap-3 flex-wrap">
-                  <img src="/immoaura-logo.png" alt="Immoaura Logo" className="h-auto w-full object-contain" />
+                  <img 
+                    src="/logo.png" 
+                    alt="Immoaura Logo" 
+                    className="h-auto w-full object-contain"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
                 </SheetTitle>
               </SheetHeader>
               <div className="flex-1 overflow-y-auto">
@@ -247,6 +262,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               </div>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </header>
 
@@ -258,7 +274,7 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             {/* Logo Section */}
             <div className="border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex-shrink-0">
               <img
-                src="/immoaura-logo.png"
+                src="/logo.png"
                 alt="Immoaura Logo"
                 className="h-auto w-full object-contain"
                 onError={(e) => {
